@@ -1,0 +1,37 @@
+#include <core/data.h>
+
+// Max length=12
+const char* pty_names[] = {
+		"None",
+		"News",
+		"Information",
+		"Sports",
+		"Talk",
+		"Rock",
+		"Classic Rock",
+		"Adult Hits",
+		"Soft Rock",
+		"Top 40",
+		"Country",
+		"Oldies",
+		"Soft Rock",
+		"Nostalgia",
+		"Jazz",
+		"Classical",
+		"R&B",
+		"Soft R&B",
+		"Foreign",
+		"Relig. Music",
+		"Relig. Talk",
+		"Personality",
+		"Public",
+		"College",
+		"Invalid (24)",
+		"Invalid (25)",
+		"Invalid (26)",
+		"Invalid (27)",
+		"Invalid (28)",
+		"Weather",
+		"Emerg. Test",
+		"Emergency"
+};

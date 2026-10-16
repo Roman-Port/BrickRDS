@@ -1,0 +1,10 @@
+#ifndef INC_CORE_DEFINES_H_
+#define INC_CORE_DEFINES_H_
+
+#define PRODUCT_NAME "BrickRDS"
+#define PRODUCT_AUTHOR "RomanPort"
+
+#define PRODUCT_VERSION_MAJOR "1"
+#define PRODUCT_VERSION_MINOR "0"
+
+#endif /* INC_CORE_DEFINES_H_ */
