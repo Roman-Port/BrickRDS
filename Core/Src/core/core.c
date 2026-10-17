@@ -4,6 +4,7 @@
 #include <core/util/flash.h>
 #include <core/util/pidb.h>
 #include <core/util/settings.h>
+#include <core/util/tuner.h>
 #include <core/util/rds.h>
 #include <core/util/fs.h>
 #include <core/views.h>
@@ -59,6 +60,9 @@ void core_init() {
 		user_settings_default(0);
 		user_settings_save();
 	}
+
+	//Now that settings are loaded, calculate tuner table using calibration data
+	tuner_recalc_table();
 
 	//Initialize filesystem
 	textarea_copy_text(&status, "Initializing filesystem...");

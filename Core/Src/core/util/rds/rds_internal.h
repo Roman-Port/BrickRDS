@@ -8,9 +8,6 @@
 
 #define RDS_RX_BLOCK_SIZE 8 // number of 8-bit bytes of symbols read from rds_rx.c; Remember to update in rds_rx.c
 
-/* Raised on interrupt of clocking a bit */
-void rds_clock_it();
-
 /*
  * Reads RDS_RX_BLOCK_SIZE samples into block. Returns 1 on success, otherwise 0.
  */

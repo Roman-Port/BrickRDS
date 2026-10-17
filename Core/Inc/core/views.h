@@ -16,6 +16,8 @@ extern view_info_t view_settings_location;
 extern view_info_t view_settings_about;
 extern view_info_t view_settings_pcmode;
 extern view_info_t view_settings_backlight;
+extern view_info_t view_settings_calibrate;
+extern view_info_t view_settings_calibration_info;
 
 extern view_info_t view_menu;
 

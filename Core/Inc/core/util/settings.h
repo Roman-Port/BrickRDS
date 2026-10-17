@@ -19,6 +19,8 @@ typedef struct user_settings_info {
 	uint8_t location_waypoint; // Waypoint index+1, 0 meaning unset
 	uint16_t location_lat; // Latitude of user
 	uint16_t location_lon; // Longitude of user
+	uint16_t vfo_calibration[5]; // ADC values at 87.9,	92.9, 97.9, 102.9 and 107.9 for calculating the tuner frequency
+	uint8_t use_clear_on_channel; // If set, resets RDS when the channel changes
 
 } user_settings_info_t;
 

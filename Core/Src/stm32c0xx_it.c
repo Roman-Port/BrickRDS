@@ -55,6 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ADC_HandleTypeDef hadc1;
 extern DMA_HandleTypeDef hdma_spi2_rx;
 /* USER CODE BEGIN EV */
 
@@ -155,16 +156,17 @@ void DMA1_Channel1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles DMAMUX and DMA1 channel 4 to channel 7 interrupts.
+  * @brief This function handles ADC1 interrupt.
   */
-void DMAMUX1_DMA1_CH4_5_6_7_IRQHandler(void)
+void ADC1_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMAMUX1_DMA1_CH4_5_6_7_IRQn 0 */
+  /* USER CODE BEGIN ADC1_IRQn 0 */
 
-  /* USER CODE END DMAMUX1_DMA1_CH4_5_6_7_IRQn 0 */
-  /* USER CODE BEGIN DMAMUX1_DMA1_CH4_5_6_7_IRQn 1 */
+  /* USER CODE END ADC1_IRQn 0 */
+  HAL_ADC_IRQHandler(&hadc1);
+  /* USER CODE BEGIN ADC1_IRQn 1 */
 
-  /* USER CODE END DMAMUX1_DMA1_CH4_5_6_7_IRQn 1 */
+  /* USER CODE END ADC1_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

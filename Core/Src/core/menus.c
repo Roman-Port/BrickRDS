@@ -1,5 +1,6 @@
 #include <core/menus.h>
 #include <core/views.h>
+#include <core/util/tuner.h>
 #include <core/util/menu.h>
 #include <core/util/settings.h>
 #include <core/util/fs.h>
@@ -11,6 +12,9 @@ static void factory_reset_confirmed(void* ctx) {
 
 	//Nuke filesystem
 	fs_wipe();
+
+	//Recalculate tuner table
+	tuner_recalc_table();
 
 	//Back out to previous menu
 	menu_back();
@@ -88,6 +92,16 @@ static menu_item_t settings_factory_menu[] = {
 
 static menu_item_t settings_menu[] = {
 		{
+				.type = MENU_ITEM_TYPE_DIRECTCHECK,
+				.text = "Clear On Freq Change",
+				.info = {
+						.direct_check = {
+								.value = &user_settings.use_clear_on_channel,
+								.callback = generic_save_settings
+						}
+				}
+		},
+		{
 				.type = MENU_ITEM_TYPE_VIEW,
 				.icon = MENU_ITEM_ICON_PIN,
 				.text = "Set Location",
@@ -104,6 +118,26 @@ static menu_item_t settings_menu[] = {
 				.info = {
 						.view = {
 								.view = &view_settings_pcmode
+						}
+				}
+		},
+		{
+				.type = MENU_ITEM_TYPE_VIEW,
+				.icon = 0,
+				.text = "Calibrate Tuner",
+				.info = {
+						.view = {
+								.view = &view_settings_calibrate
+						}
+				}
+		},
+		{
+				.type = MENU_ITEM_TYPE_VIEW,
+				.icon = 0,
+				.text = "Test Tuner Calibration",
+				.info = {
+						.view = {
+								.view = &view_settings_calibration_info
 						}
 				}
 		},

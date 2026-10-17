@@ -9,6 +9,7 @@
 #define CHARSET_MAIN_UPPER 0
 #define CHARSET_MAIN_LOWER 1
 #define CHARSET_BACKLIGHT 2
+#define CHARSET_TUNER_CALIBRATION 3
 
 /*
  * Updates the current charset of the display controller.

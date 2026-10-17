@@ -2,6 +2,7 @@
 
 #include "stm32c0xx_hal.h"
 #include "rds_internal.h"
+#include <core/util/settings.h>
 #include <string.h>
 
 rds_info_t rds_state;
@@ -35,7 +36,11 @@ void rds_decode_group_a() {
 
 	//If the PI has changed for multiple packets in a row, proceed
 	if (rds_state.pi != last_pi && last_pi_cont >= 3) {
-		rds_reset();
+		//Only reset if not controlled by freq
+		if (!user_settings.use_clear_on_channel)
+			rds_reset();
+
+		//Update PI
 		rds_state.pi = pi;
 	}
 }

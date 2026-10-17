@@ -2,6 +2,7 @@
 
 #include "rds_internal.h"
 #include <core/util/settings.h>
+#include <core/util/tuner.h>
 #include <assert.h>
 
 #define BER_SAMPLE_SUBSAMPLES 1 // Number of times a single BER sample is added to (calculated with 256/BLOCK_SIZE)
@@ -23,6 +24,7 @@ static int skip = 0;
 static int lastType = BLOCK_TYPE_A;
 static int syncLastType = BLOCK_TYPE_A;
 static int contGroup = 0;
+static int last_channel = -1;
 
 static const uint16_t LFSR_POLY = 0b0110111001;
 static const uint16_t IN_POLY   = 0b1100011011;
@@ -323,6 +325,13 @@ static void rds_sync_process_symbol(uint8_t sym) {
  * Processes incoming data from the IC
  */
 void rds_process() {
+	//Initiate reset on channel change
+	int currentChannel = tuner_current_channel;
+	if (user_settings.use_clear_on_channel && last_channel != currentChannel && last_channel != -1)
+		rds_reset();
+	last_channel = currentChannel;
+
+	//Process blocks
 	uint8_t block[RDS_RX_BLOCK_SIZE];
 	uint8_t bits;
 	while (rds_rx_symbols(block)) {

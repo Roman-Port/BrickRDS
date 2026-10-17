@@ -46,6 +46,12 @@ void user_settings_default(uint32_t oldVersion) {
 		user_settings.location_waypoint = 0;
 		user_settings.location_lat = 0;
 		user_settings.location_lon = 0;
+		user_settings.vfo_calibration[0] = 6087;
+		user_settings.vfo_calibration[1] = 11084;
+		user_settings.vfo_calibration[2] = 18902;
+		user_settings.vfo_calibration[3] = 31639;
+		user_settings.vfo_calibration[4] = 53697;
+		user_settings.use_clear_on_channel = 1;
 	}
 }
 
