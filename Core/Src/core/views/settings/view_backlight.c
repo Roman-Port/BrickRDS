@@ -93,7 +93,7 @@ void view_settings_backlight_tick() {
 	render_rtp_line(3, 1, buffer);*/
 
 	//Handle input
-	if (core_get_button(BTN_CLEAR)) {
+	if (core_get_button(BTN_ENTER)) {
 		disp_write_text_at(30, 30, "O:", -1);
 	}
 	if (core_get_button(BTN_BACK))

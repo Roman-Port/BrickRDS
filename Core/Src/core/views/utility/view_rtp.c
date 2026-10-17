@@ -156,7 +156,7 @@ void view_utility_rtp_tick() {
 	render_rtp_line(3, 1, buffer);
 
 	//Handle input
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		rds_reset();
 	if (core_get_button(BTN_BACK))
 		menu_reshow();

@@ -133,7 +133,7 @@ void view_baserds_tick() {
 	render_sig_meter();
 
 	//Process menu button
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		menus_show_mainmenu();
 	else if (core_get_button(BTN_LEFT))
 		core_change_view(prev_view);

@@ -49,7 +49,7 @@ void view_settings_about_init() {
  */
 void view_settings_about_tick() {
 	//Handle easter egg by hitting menu 3 times
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		secret_counter++;
 
 	//Show secret

@@ -115,7 +115,7 @@ void view_settings_calibrate_tick() {
 	textarea_render(&ta_value);
 
 	//Handle input
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		process_submit();
 	else if (core_get_button(BTN_BACK))
 		menu_reshow();

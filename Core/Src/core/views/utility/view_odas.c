@@ -55,7 +55,7 @@ void view_utility_odas_tick() {
 		render_oda(i, &rds_state.oda[i]);
 
 	//Handle input
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		rds_reset();
 	if (core_get_button(BTN_BACK))
 		menu_reshow();

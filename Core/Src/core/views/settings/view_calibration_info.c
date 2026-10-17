@@ -130,7 +130,7 @@ void view_settings_calibration_info_tick() {
 	textarea_render(&ta_timer);
 
 	//Handle input
-	if (core_get_button(BTN_CLEAR))
+	if (core_get_button(BTN_ENTER))
 		tuner_diag_reset = 1;
 	if (core_get_button(BTN_BACK))
 		menu_reshow();

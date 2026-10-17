@@ -242,7 +242,7 @@ void view_menu_tick() {
 		//Bail out
 		return;
 	}
-	else if (core_get_button(BTN_CLEAR)) {
+	else if (core_get_button(BTN_ENTER)) {
 		//Execute current menu
 		execute_menu_item(&menu_stack[menu_stack_index].items[menu_stack[menu_stack_index].selected_index]);
 

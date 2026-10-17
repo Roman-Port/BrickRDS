@@ -141,7 +141,11 @@ void core_tick() {
 	if (!HAL_GPIO_ReadPin(BTN_BACK_GPIO_Port, BTN_BACK_Pin))
 		pressedBtns |= BTN_BACK;
 	if (!HAL_GPIO_ReadPin(BTN_CLEAR_GPIO_Port, BTN_CLEAR_Pin))
-		pressedBtns |= BTN_CLEAR;
+		pressedBtns |= BTN_ENTER;
+
+	//Check for global clear button
+	if (!HAL_GPIO_ReadPin(BTN_RESET_GPIO_Port, BTN_RESET_Pin))
+		rds_reset();
 
 	//Check for specific combos
 	if ((pressedBtns & (BTN_LEFT | BTN_RIGHT)) == (BTN_LEFT | BTN_RIGHT)) {

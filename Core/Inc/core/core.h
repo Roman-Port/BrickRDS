@@ -5,7 +5,7 @@
 
 #define BTN_LEFT (1 << 0)
 #define BTN_RIGHT (1 << 1)
-#define BTN_CLEAR (1 << 2)
+#define BTN_ENTER (1 << 2)
 #define BTN_BACK (1 << 3)
 
 extern view_info_t* current_view;
