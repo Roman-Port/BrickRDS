@@ -2,6 +2,7 @@
 
 #include "main.h"
 #include <core/util/tuner.h>
+#include <core/util/backlight.h>
 
 static int current_channel = 0;
 
@@ -16,6 +17,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
 		tuner_update(reading);
 		break;
 	case 1: // Backlight
+		backlight_update(reading);
 		break;
 	}
 

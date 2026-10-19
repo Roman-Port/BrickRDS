@@ -1,6 +1,7 @@
 #include <core/util/display.h>
 #include <core/util/menu.h>
 #include <core/util/charset.h>
+#include <core/util/backlight.h>
 #include <core/core.h>
 #include <core/views.h>
 #include <stdint.h>
@@ -56,6 +57,12 @@ static void render_marker(int row, char cursor, uint16_t raw) {
 	disp_write_text_at(row, 2, buf, -1);
 }
 
+static void update_io_graphs() {
+	//Update each
+	render_marker(1, 0x06, backlight_reading);
+	render_marker(3, 0x07, backlight_brightness);
+}
+
 /*
  * Init function
  */
@@ -74,8 +81,7 @@ void view_settings_backlight_init() {
 	disp_write_text_at(3, 0, "O:", -1);
 
 	render_graph(2, 5, 10);
-	render_marker(1, 0x06, 0);
-	render_marker(3, 0x07, 65535);
+	update_io_graphs();
 }
 
 /*
@@ -91,6 +97,9 @@ void view_settings_backlight_tick() {
 	//Render tags
 	render_rtp_line(2, 0, buffer);
 	render_rtp_line(3, 1, buffer);*/
+
+	//Update graphs
+	update_io_graphs();
 
 	//Handle input
 	if (core_get_button(BTN_ENTER)) {

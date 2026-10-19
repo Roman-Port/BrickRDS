@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <core/util/settings.h>
+#include <core/util/tuner.h>
 
 #define NR_SAMPLES 128
 

@@ -61,8 +61,9 @@ void core_init() {
 		user_settings_save();
 	}
 
-	//Now that settings are loaded, calculate tuner table using calibration data
+	//Now that settings are loaded, calculate tuner/backlight table using calibration data
 	tuner_recalc_table();
+	backlight_recalc_table();
 
 	//Initialize filesystem
 	textarea_copy_text(&status, "Initializing filesystem...");
